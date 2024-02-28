@@ -1,0 +1,11 @@
+
+    _/    _/            _/  _/                  _/_/_/                                  _/
+   _/    _/    _/_/    _/  _/    _/_/        _/          _/_/    _/  _/_/  _/      _/        _/_/_/    _/_/
+  _/_/_/_/  _/_/_/_/  _/  _/  _/    _/        _/_/    _/_/_/_/  _/_/      _/      _/  _/  _/        _/_/_/_/
+ _/    _/  _/        _/  _/  _/    _/            _/  _/        _/          _/  _/    _/  _/        _/
+_/    _/    _/_/_/  _/  _/    _/_/        _/_/_/      _/_/_/  _/            _/      _/    _/_/_/    _/_/_/
+
+ :: Service     :: ${spring.application.name}
+ :: Version     :: ${spring.application.version}
+ :: Build time  :: ${spring.application.build.time}
+ :: Build OS    :: ${spring.application.build.os.name} v${spring.application.build.os.version}

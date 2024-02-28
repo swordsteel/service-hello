@@ -1,0 +1,56 @@
+spring:
+  profiles:
+    active: development
+  application:
+    name: "%APP_NAME%"
+    version: "%APP_VERSION%"
+    build:
+      time: "%APP_BUILD_TIME%"
+      os:
+        name: "%APP_BUILD_OS_NAME%"
+        version: "%APP_BUILD_OS_VERSION%"
+
+---
+###############################
+### Development environment ###
+###############################
+spring:
+  config:
+    activate:
+      on-profile: development
+
+---
+##########################
+### Docker environment ###
+##########################
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+---
+###########################
+### Staging environment ###
+###########################
+spring:
+  config:
+    activate:
+      on-profile: staging
+
+---
+###########################
+### Testing environment ###
+###########################
+spring:
+  config:
+    activate:
+      on-profile: testing
+
+---
+##############################
+### Production environment ###
+##############################
+spring:
+  config:
+    activate:
+      on-profile: production
