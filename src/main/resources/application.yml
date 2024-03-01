@@ -9,6 +9,9 @@ spring:
       os:
         name: "%APP_BUILD_OS_NAME%"
         version: "%APP_BUILD_OS_VERSION%"
+      git:
+        commit: "%APP_BUILD_GIT_COMMIT%"
+        branch: "%APP_BUILD_GIT_BRANCH%"
 
 ---
 ###############################

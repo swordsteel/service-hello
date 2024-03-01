@@ -7,5 +7,6 @@ _/    _/    _/_/_/  _/  _/    _/_/        _/_/_/      _/_/_/  _/            _/  
 
  :: Service     :: ${spring.application.name}
  :: Version     :: ${spring.application.version}
+ :: Git info    :: ${spring.application.build.git.branch} #${spring.application.build.git.commit}
  :: Build time  :: ${spring.application.build.time}
  :: Build OS    :: ${spring.application.build.os.name} v${spring.application.build.os.version}

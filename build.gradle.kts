@@ -6,9 +6,6 @@ import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension.Companion.DEFAULT_SRC_DIR_KOTLIN
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension.Companion.DEFAULT_TEST_SRC_DIR_KOTLIN
 import java.lang.System.getProperty
-import java.time.OffsetDateTime.now
-import java.time.ZoneId.of
-import java.time.format.DateTimeFormatter.ofPattern
 import org.gradle.api.JavaVersion.VERSION_17
 import org.gradle.kotlin.dsl.support.uppercaseFirstChar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -20,6 +17,8 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
     id("org.springframework.boot") version "3.2.3"
+
+    id("ltd.lulz.plugin.core") version "0.1.0"
 
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
@@ -35,11 +34,7 @@ dependencies {
 
 description = "Lulz Ltd Test Service Hello"
 group = "ltd.lulz.service"
-
-val timestamp = now()
-    .atZoneSameInstant(of("UTC"))
-    .format(ofPattern("yyyy-MM-dd HH:mm:ss z"))
-    .toString()
+version = git.version()
 
 detekt {
     buildUponDefaultConfig = true
@@ -115,9 +110,11 @@ tasks {
         filesMatching("**/application.yml") {
             filter { it.replace("%APP_NAME%", project.name.uppercaseFirstChar()) }
             filter { it.replace("%APP_VERSION%", project.version as String) }
-            filter { it.replace("%APP_BUILD_TIME%", timestamp) }
+            filter { it.replace("%APP_BUILD_TIME%", core.timestamp) }
             filter { it.replace("%APP_BUILD_OS_NAME%", getProperty("os.name")) }
             filter { it.replace("%APP_BUILD_OS_VERSION%", getProperty("os.version")) }
+            filter { it.replace("%APP_BUILD_GIT_COMMIT%", git.currentShortHash()) }
+            filter { it.replace("%APP_BUILD_GIT_BRANCH%", git.currentBranch()) }
         }
         onlyIf { file("src/main/resources/application.yml").exists() }
     }
