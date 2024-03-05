@@ -14,6 +14,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    componentTestImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 description = "Lulz Ltd Test Service Hello"
