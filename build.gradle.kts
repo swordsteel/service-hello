@@ -18,6 +18,9 @@ dependencies {
 
     componentTestImplementation("io.projectreactor:reactor-test")
     componentTestImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    integrationTestImplementation("io.projectreactor:reactor-test")
+    integrationTestImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 description = "Lulz Ltd Test Service Hello"
