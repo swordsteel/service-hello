@@ -15,6 +15,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    componentTestImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 description = "Lulz Ltd Test Service Hello"

@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: development
+  application:
+    name: Test
+    version: 0.1.2
