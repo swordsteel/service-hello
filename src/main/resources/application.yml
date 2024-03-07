@@ -12,6 +12,10 @@ spring:
       git:
         commit: "%APP_BUILD_GIT_COMMIT%"
         branch: "%APP_BUILD_GIT_BRANCH%"
+  cassandra:
+    keyspace-name: lulz_ltd_keyspace
+    port: 9042
+    schema-action: none
 
 ---
 ###############################
@@ -21,6 +25,11 @@ spring:
   config:
     activate:
       on-profile: development
+  cassandra:
+    contact-points: localhost
+    local-datacenter: datacenter1
+    username: username
+    password: password
 
 ---
 ##########################
@@ -30,6 +39,11 @@ spring:
   config:
     activate:
       on-profile: docker
+  cassandra:
+    contact-points: cassandra
+    local-datacenter: datacenter1
+    username: username
+    password: password
 
 ---
 ###########################

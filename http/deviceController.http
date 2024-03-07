@@ -1,0 +1,20 @@
+### Register Device
+POST http://localhost:8080/device
+content-type: application/json
+accept: application/json
+
+{
+    "device": "00000000-0000-0000-0000-000000000000"
+}
+
+### Get Device
+GET http://localhost:8080/device/00000000-0000-0000-0000-000000000000
+
+### Update Device Data
+PUT http://localhost:8080/device/00000000-0000-0000-0000-000000000000?version=3
+content-type: application/json
+accept: application/json
+
+{
+  "data": "8455C93F000000000000000078787878787878782D787878782D787878782D787878782D787878787878787878787878002CE181000000000000000000000000"
+}
